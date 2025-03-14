@@ -53,4 +53,5 @@ $paths = new Config\Paths();
 // LOAD THE FRAMEWORK BOOTSTRAP FILE
 require $paths->systemDirectory . '/Boot.php';
 
+$_SERVER['SERVER_PORT'] = 8080;
 exit(CodeIgniter\Boot::bootWeb($paths));
