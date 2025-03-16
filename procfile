@@ -1,1 +1,1 @@
-web: php spark serve --host=0.0.0.0 --port=8080
+web: service nginx start && php-fpm -D && tail -F /var/log/nginx/access.log
