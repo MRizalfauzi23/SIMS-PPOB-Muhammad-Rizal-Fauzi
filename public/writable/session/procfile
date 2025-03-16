@@ -1,1 +1,1 @@
-web: php spark serve --host=0.0.0.0 --port=8000
+web: cd public && php -S 0.0.0.0:8000
