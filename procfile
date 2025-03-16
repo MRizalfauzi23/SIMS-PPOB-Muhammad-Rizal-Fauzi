@@ -1,1 +1,1 @@
-web: service nginx start && php-fpm -D && tail -F /var/log/nginx/access.log
+web: /usr/sbin/php-fpm -D && /usr/sbin/nginx -g "daemon off;"
