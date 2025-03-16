@@ -16,7 +16,7 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'https://sims-ppob-muhammad-rizal-fauzi-development.up.railway.app'; // Ensure this is correct for production
+    public string $baseURL = 'https://sims-ppob-muhammad-rizal-fauzi-production.up.railway.app'; // Ensure this is correct for production
 
     public bool $forceGlobalSecureRequests = true; // Force HTTPS requests
 

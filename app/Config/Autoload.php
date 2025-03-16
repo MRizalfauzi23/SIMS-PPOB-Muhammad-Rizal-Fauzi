@@ -40,6 +40,8 @@ class Autoload extends AutoloadConfig
      * @var array<string, list<string>|string>
      */
     public $psr4 = [
+        'Kint\\' => SYSTEMPATH . 'ThirdParty/Kint/',
+        'Laminas\\' => SYSTEMPATH . 'ThirdParty/Escaper/',
         APP_NAMESPACE => APPPATH,
         'Config' => APPPATH . 'Config',
     ];
