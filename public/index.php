@@ -28,6 +28,11 @@ if (version_compare(PHP_VERSION, $minPhpVersion, '<')) {
 
 // Path to the front controller (this file)
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
+$pathsPath = realpath(FCPATH . '../app/Config/Paths.php') ?: FCPATH . '../app/Config/Paths.php';
+require $pathsPath;
+$paths = new Config\Paths();
+require rtrim($paths->systemDirectory, '/ ') . '/bootstrap.php';
+
 
 // Ensure the current directory is pointing to the front controller's directory
 if (getcwd() . DIRECTORY_SEPARATOR !== FCPATH) {
@@ -53,6 +58,6 @@ $paths = new Config\Paths();
 // LOAD THE FRAMEWORK BOOTSTRAP FILE
 require $paths->systemDirectory . '/Boot.php';
 
-$port = getenv('PORT') ?: 8080;
+$port = getenv('PORT') ?: 8080; // Ensure the port is set correctly for Railway
 $_SERVER['SERVER_PORT'] = 8080;
 exit(CodeIgniter\Boot::bootWeb($paths));
