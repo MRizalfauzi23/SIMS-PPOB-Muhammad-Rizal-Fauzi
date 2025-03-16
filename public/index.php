@@ -1,29 +1,23 @@
 <?php
 
-/*
- *---------------------------------------------------------------
- * CHECK PHP VERSION
- *---------------------------------------------------------------
- */
+// Pastikan environment sudah diset
 define('ENVIRONMENT', $_SERVER['CI_ENVIRONMENT'] ?? 'production');
 
-/*
- *---------------------------------------------------------------
- * SET THE CURRENT DIRECTORY
- *---------------------------------------------------------------
- */
-
-// Path to the front controller (this file)
+// Path ke public
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 
-// LOAD OUR PATHS CONFIG FILE
+// Load Paths Config
 require FCPATH . '../app/Config/Paths.php';
 $paths = new Config\Paths();
 
-// LOAD THE FRAMEWORK BOOTSTRAP FILE
+// Pastikan autoloader CodeIgniter ada
+require FCPATH . '../vendor/autoload.php';
+
+// Load framework bootstrap
 require rtrim($paths->systemDirectory, '/ ') . '/Boot.php';
 
-$port = getenv('PORT') ?: 8080; // Ensure the port is set correctly for Railway
-$_SERVER['SERVER_PORT'] = $port;
+// Pastikan server port sudah benar untuk Railway
+$_SERVER['SERVER_PORT'] = getenv('PORT') ?: 8080;
 
-exit(CodeIgniter\CodeIgniter::run());
+// Jalankan aplikasi
+CodeIgniter\CodeIgniter::run();
