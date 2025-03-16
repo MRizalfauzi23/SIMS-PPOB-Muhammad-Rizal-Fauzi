@@ -19,5 +19,6 @@ require rtrim($paths->systemDirectory, '/ ') . '/Boot.php';
 // Pastikan server port sudah benar untuk Railway
 $_SERVER['SERVER_PORT'] = getenv('PORT') ?: 8080;
 
-// Jalankan aplikasi
-CodeIgniter\CodeIgniter::run();
+// Jalankan aplikasi dengan instance, bukan statis
+$app = new CodeIgniter\CodeIgniter($paths);
+$app->run();
